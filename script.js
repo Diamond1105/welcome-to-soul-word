@@ -66,25 +66,33 @@ setLanguage('en');
     }
 
     // === Back to Top Button Logic ===
-   // ... (Language Toggle Logic yahaan khatm hota hai)
-
-// === Back to Top Button Logic ===
+  // === Back to Top Button Logic (Robust Version) ===
 const backToTopButton = document.getElementById('back-to-top');
 
-// Kadam 1: Button ko dikhana aur chhipana
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 350) { // Jab user 350 pixels se zyada scroll karega
-        backToTopButton.style.display = 'block';
-    } else {
-        backToTopButton.style.display = 'none';
-    }
-});
+// Sirf tabhi chalao agar button HTML mein maujood hai
+if (backToTopButton) {
 
-// Kadam 2: Click hone par upar scroll karna
-backToTopButton.addEventListener('click', (e) => {
-    e.preventDefault(); // Link ke default behavior ko rokna
-    window.scrollTo({
-        top: 0,
+    // Kadam 1: Button ko dikhana aur chhipana
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 350) { // Jab user 350 pixels se zyada scroll karega
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+    // Kadam 2: Click hone par upar scroll karna
+    backToTopButton.addEventListener('click', (e) => {
+        e.preventDefault(); // Link ke default behavior ko rokna
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Isse scroll dheere se upar jayega
+        });
+    });
+
+    // Shuruat mein button ko chhipa do (Page load hone par)
+    backtoTopButton.style.display = 'none';
+}
         behavior: 'smooth' // Isse scroll dheere se upar jayega
     });
 });
@@ -100,6 +108,7 @@ backToTopButton.style.display = 'none';
     // handleScroll();
 
 }); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+
 
 
 
