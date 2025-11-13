@@ -88,16 +88,14 @@ if (backToTopButton) {
             behavior: 'smooth' 
         });
     });
-    
-    // Shuruat mein chhipa do
-    backToTopButton.style.display = 'none';
-} 
+
 // -------------------------------------------------------------------
 // Note: Iske neeche agar koi aur code nahi hai, toh file sahi se band honi chahiye.
 
 } // <--- Yahaan 'if (backToTopButton)' check band hua.
 
 }); // <--- Yahaan 'document.addEventListener' (File ka ant) band hua.
+
 
 
 
