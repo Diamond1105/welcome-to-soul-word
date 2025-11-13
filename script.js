@@ -1,6 +1,21 @@
 // Wait for the page to load
 document.addEventListener('DOMContentLoaded', () => {
 
+    // === Good Morning/Evening Message ===
+const welcomeMessage = document.getElementById('welcome-message');
+const date = new Date();
+const hours = date.getHours(); // यूज़र का मौजूदा समय (0-23)
+
+if (hours < 12) {
+    // सुबह 12 बजे से पहले
+    welcomeMessage.textContent = "Good Morning, Welcome to Soul World";
+} else if (hours < 17) {
+    // दोपहर 12 बजे से शाम 5 बजे के बीच
+    welcomeMessage.textContent = "Good Afternoon, Welcome to Soul World";
+} else {
+    // शाम 5 बजे के बाद
+    welcomeMessage.textContent = "Good Evening, Welcome to Soul World";
+}
     // 1. Get the buttons
     const btnEn = document.getElementById('btn-en');
     const btnHi = document.getElementById('btn-hi');
@@ -63,3 +78,4 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll();
+
