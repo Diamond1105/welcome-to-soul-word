@@ -66,20 +66,33 @@ setLanguage('en');
     }
 
     // === Back to Top Button Logic ===
-    const backToTopButton = document.getElementById('back-to-top');
-    
-    // Sirf tabhi chalao agar '#back-to-top' HTML mein hai
-    if (backToTopButton) {
-        // (Aapka back-to-top ka jo bhi code hai woh yahaan daal dijiye)
-        // Example ke liye:
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.style.display = 'block';
-            } else {
-                backToTopButton.style.display = 'none';
-            }
-        });
+   // ... (Language Toggle Logic yahaan khatm hota hai)
+
+// === Back to Top Button Logic ===
+const backToTopButton = document.getElementById('back-to-top');
+
+// Kadam 1: Button ko dikhana aur chhipana
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 350) { // Jab user 350 pixels se zyada scroll karega
+        backToTopButton.style.display = 'block';
+    } else {
+        backToTopButton.style.display = 'none';
     }
+});
+
+// Kadam 2: Click hone par upar scroll karna
+backToTopButton.addEventListener('click', (e) => {
+    e.preventDefault(); // Link ke default behavior ko rokna
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Isse scroll dheere se upar jayega
+    });
+});
+
+// Shuruat mein button ko chhipa do (Page load hone par)
+backToTopButton.style.display = 'none';
+
+// ... (Baaki bacha hua code aur fir yahaan par 'DOMContentLoaded' function band hota hai)
     
     // ... (Aapka bacha hua code jaise handleScroll() etc. bhi YAHIN AAYEGA)
     // const handleScroll = () => { ... };
@@ -87,6 +100,7 @@ setLanguage('en');
     // handleScroll();
 
 }); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+
 
 
 
