@@ -383,6 +383,45 @@ section.about-me { padding: 3rem 20px; }
     50% { transform: translate(-30px, 60px); opacity: 1; }
     75% { transform: translate(40px, 20px); opacity: 0.7; }
 }
+ /* === Back to Top Button === */
+.back-to-top-btn {
+    position: fixed; /* Taki yeh scroll ke saath fix rahe */
+    bottom: 30px;
+    right: 30px;
+    z-index: 99;
 
+    /* Styling */
+    background-color: #007991; /* Aapka main color */
+    color: #ffffff;
+    border: none;
+    border-radius: 50%; /* Isse yeh poora gol ho jaayega */
+    width: 50px;
+    height: 50px;
+
+    /* Text (arrow) ko center mein laana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem; /* Arrow ka size */
+    font-weight: bold;
+    text-decoration: none;
+
+    /* Hide karna (Extreme Level) */
+    opacity: 0; /* By default, poori tarah transparent */
+    visibility: hidden; /* By default, chhipa hua */
+    transform: translateY(10px); /* Thoda neeche se aayega */
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
+}
+
+/* Yeh class hum JavaScript se jodenge */
+.back-to-top-btn.show {
+    opacity: 1; /* Dikhne lagega */
+    visibility: visible; /* Chhipa nahin rahega */
+    transform: translateY(0); /* Apni jagah par aa jaayega */
+}
+
+.back-to-top-btn:hover {
+    background-color: #005f73; /* Hover par thoda dark color */
+}
 
 
