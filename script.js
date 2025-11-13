@@ -46,7 +46,7 @@ hindiBtn.addEventListener('click', () => setLanguage('hi'));
 // Pehli baar load hone par English set karo
 setLanguage('en');
     // (Line 81 waala code)
-    const greetingElement = document.getElementById("welcome-message");
+    const greetingElement = document.getElementById("dynamic-greeting");
     
     // Sirf tabhi chalao agar '#greeting-text' HTML mein hai
     if (greetingElement) {
@@ -95,6 +95,7 @@ if (backToTopButton) {
 } // <--- Yahaan 'if (backToTopButton)' check band hua.
 
 }); // <--- Yahaan 'document.addEventListener' (File ka ant) band hua.
+
 
 
 
