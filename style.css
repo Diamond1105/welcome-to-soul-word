@@ -88,7 +88,7 @@ body {
 /* === Hero Section === */
 .hero {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                      url('word-soul.jpg');
+                      url('soul.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed; 
@@ -383,5 +383,6 @@ section.about-me { padding: 3rem 20px; }
     50% { transform: translate(-30px, 60px); opacity: 1; }
     75% { transform: translate(40px, 20px); opacity: 0.7; }
 }
+
 
 
