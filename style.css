@@ -412,6 +412,14 @@ section.about-me { padding: 3rem 20px; }
     transform: translateY(10px); /* Thoda neeche se aayega */
     transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
 }
+/* style.css file mein, .back-to-top-btn block ke neeche yeh naya code daaliye */
+.back-to-top-btn::before {
+    content: "↑"; /* Yahaan humne arrow inject kiya */
+    color: white; /* Yeh text color ko visible karega */
+    font-size: 20px; /* Arrow ka size */
+    font-weight: bold;
+    line-height: 50px; /* Arrow ko center mein laata hai */
+}
 
 /* Yeh class hum JavaScript se jodenge */
 .back-to-top-btn.show {
@@ -424,6 +432,7 @@ section.about-me { padding: 3rem 20px; }
     background-color: #005f73; /* Hover par thoda dark color */
 }
  /* Apni sahi jagah par wapas aayega */
+
 
 
 
