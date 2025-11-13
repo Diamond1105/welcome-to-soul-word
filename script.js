@@ -75,9 +75,9 @@ if (backToTopButton) {
     // Kadam 1: Button ko dikhana aur chhipana
     window.addEventListener('scroll', () => {
         if (window.scrollY > 350) { // Jab user 350 pixels se zyada scroll karega
-            backToTopButton.style.display = 'block';
+            backToTopButton.classList.add('show'); 
         } else {
-            backToTopButton.style.display = 'none';
+            backToTopButton.classList.remove('show')
         }
     });
 
@@ -108,6 +108,7 @@ backToTopButton.style.display = 'none';
     // handleScroll();
 
 }); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+
 
 
 
