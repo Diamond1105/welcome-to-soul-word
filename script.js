@@ -78,4 +78,33 @@ if (hours < 12) {
     };
     window.addEventListener('scroll', handleHeaderScroll);
     handleHeaderScroll();
+// ... (Yahaan aapka 'Good Morning' waala code hoga) ...
 
+    // === Back to Top Button Logic ===
+    const backToTopButton = document.getElementById('back-to-top');
+
+    // Scroll check karne waala function
+    const handleBackToTop = () => {
+        if (window.scrollY > 200) { 
+            // Agar user 200px se zyada neeche scroll kar chuka hai
+            backToTopButton.classList.add('show');
+        } else {
+            // Agar user waapas oopar aa gaya hai
+            backToTopButton.classList.remove('show');
+        }
+    };
+
+    // Click karne par smooth scroll
+    const scrollToTop = (event) => {
+        event.preventDefault(); // Link ko kaam karne se rokein
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // 'Extreme Level' smooth scroll
+        });
+    };
+
+    // Dono functions ko window aur button se jodna
+    window.addEventListener('scroll', handleBackToTop); // Scroll par check karein
+    backToTopButton.addEventListener('click', scrollToTop); // Click par oopar jaayen
+
+});
