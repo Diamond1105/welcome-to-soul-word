@@ -1,7 +1,7 @@
 // YEH SABSE ZAROORI LINE HAI
 // Iska matlab hai: "Browser, pehle poora HTML load kar lo, fir yeh function chalana"
 document.addEventListener('DOMContentLoaded', function() {
-
+    alert("TEST OK _ File Load Ho Gayi!"); //<-- BAS YEHI EK NAYI LINE ADD KARNI HAI
     // === Dynamic header background on scroll ===
     const header = document.querySelector('.main-header');
     
@@ -63,3 +63,4 @@ document.addEventListener('DOMContentLoaded', function() {
     // handleScroll();
 
 }); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+
