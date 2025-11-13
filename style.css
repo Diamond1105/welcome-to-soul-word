@@ -91,7 +91,7 @@ body {
                       url('https://images.unsplash.com/photo-1475113523558-ee0652f2de83?q=80&w=2060');
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed; /* इससे Parallax इफ़ेक्ट आएगा */
+    background-attachment: fixed; 
     
     color: #ffffff; 
     padding: 5rem 0;
@@ -99,7 +99,9 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 70vh; /* थोड़ी और ऊँचाई दें */
+    min-height: 70vh; 
+    position: relative;
+    overflow: hidden;
 }
 .hero h1 {
     font-size: 3.5rem; 
@@ -381,3 +383,4 @@ section.about-me { padding: 3rem 20px; }
     50% { transform: translate(-30px, 60px); opacity: 1; }
     75% { transform: translate(40px, 20px); opacity: 0.7; }
 }
+
