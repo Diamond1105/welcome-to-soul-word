@@ -36,6 +36,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
+    transition: background-color 0.4s ease,box-shadow 0.4s ease;
 }
 
 .main-header .container {
@@ -66,22 +67,39 @@ body {
     font-weight: 500;
     font-size: 1rem;
     transition: color 0.3s ease;
+    position: relative;
 }
 .main-nav a:hover { color: #007991; }
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #007991;
+    transition: width 0.3s ease-out;
+}
+.main-nav a:hover::after {
+    width: 100%;
+}
 
 /* === Hero Section === */
 .hero {
-    background: linear-gradient(
-        135deg,
-        #ff9a9e 0%, #fad0c4 25%, #ffe29f 50%, #a1c4fd 75%, #c2e9fb 100%
-    );
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                      url('https://images.unsplash.com/photo-1475113523558-ee0652f2de83?q=80&w=2060');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* इससे Parallax इफ़ेक्ट आएगा */
+    
     color: #ffffff; 
     padding: 5rem 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 60vh; 
+    min-height: 70vh; /* थोड़ी और ऊँचाई दें */
 }
 .hero h1 {
     font-size: 3.5rem; 
@@ -175,8 +193,8 @@ main.container { padding: 3rem 20px; }
     overflow: hidden; 
 }
 .thought-card:hover {
-    transform: translateY(-8px); 
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    transform: translateY(-12px) scale(1.02); /* थोड़ा ज़्यादा ऊपर और हल्का बड़ा */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15); /* शैडो को गहरा और बड़ा करें */
 }
 .thought-card::before {
     content: '“'; 
@@ -227,6 +245,12 @@ section.about-me { padding: 3rem 20px; }
     object-fit: cover; /* Prevents stretching */
     border: 5px solid #ffffff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+.about-image img:hover {
+    transform: scale(1.05); /* 5% ज़ूम */
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15); /* शैडो को थोड़ा बड़ा करें */
 }
 .about-text {
     flex: 2; /* Takes up 2 parts (wider) */
@@ -264,15 +288,29 @@ section.about-me { padding: 3rem 20px; }
     border-bottom: 2px solid #e0f7fa;
     display: inline-block;
 }
-.social-links { list-style: none; padding-left: 0; }
-.social-links li { margin-bottom: 0.8rem; }
+.social-links { 
+    list-style: none; 
+    padding-left: 0; 
+    margin-top: 1rem;
+}
+
+.social-links li {
+    display: inline-block; /* लिंक्स को एक लाइन में लाएँ */
+    margin-right: 15px; /* उनके बीच जगह दें */
+}
+
 .social-links a {
     color: #007991;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1.1rem;
+    font-size: 1.8rem; /* आइकन्स का साइज़ बड़ा करें */
+    display: inline-block;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
-.social-links a:hover { text-decoration: underline; }
+
+.social-links a:hover {
+    color: #005f73; /* डार्क कलर */
+    transform: translateY(-3px); /* आइकॉन को थोड़ा ऊपर उठाएँ */
+}
 
 /* === Footer === */
 .main-footer {
@@ -281,4 +319,65 @@ section.about-me { padding: 3rem 20px; }
     margin-top: 1rem;
     color: #777;
     font-size: 0.9rem;
+
+}
+/* === Responsive Design === */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem; /* मोबाइल पर हेडिंग थोड़ी छोटी */
+    }
+    .hero p {
+        font-size: 1.2rem;
+    }
+    h2 {
+        font-size: 1.8rem; /* सेक्शन हेडर थोड़े छोटे */
+    }
+/* === Scroll-Reveal Animation === */
+.reveal {
+    opacity: 0;
+    transform: translateY(20px); /* थोड़ा नीचे से ऊपर उठेगा */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform; /* परफॉरमेंस के लिए */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+    /* 'About Me' को एक के नीचे एक दिखाएँ */
+    .about-content {
+        flex-direction: column; /* कॉलम में बदलें */
+        text-align: center;
+    }
+
+    /* यह हिस्सा वैकल्पिक है, अगर आप हैमबर्गर मेन्यू नहीं बना रहे हैं */
+    /* .main-nav ul {
+        display: none; 
+    } */
+}
+/* === CSS Particles for Hero === */
+.hero {
+    position: relative; /* यह हीरो को पार्टिकल्स का 'मालिक' बनाता है */
+    overflow: hidden; /* ताकि पार्टिकल्स हीरो सेक्शन से बाहर न निकलें */
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: floatParticles 20s infinite ease-in-out;
+}
+
+.particle:nth-child(1) { width: 5px; height: 5px; top: 10%; left: 20%; animation-delay: 0s; }
+.particle:nth-child(2) { width: 8px; height: 8px; top: 30%; left: 70%; animation-delay: 5s; }
+.particle:nth-child(3) { width: 6px; height: 6px; top: 60%; left: 40%; animation-delay: 10s; }
+.particle:nth-child(4) { width: 4px; height: 4px; top: 80%; left: 80%; animation-delay: 15s; }
+.particle:nth-child(5) { width: 7px; height: 7px; top: 50%; left: 10%; animation-delay: 2s; }
+
+
+@keyframes floatParticles {
+    0%, 100% { transform: translate(0, 0); opacity: 0.8; }
+    25% { transform: translate(20px, 30px); opacity: 0.6; }
+    50% { transform: translate(-30px, 60px); opacity: 1; }
+    75% { transform: translate(40px, 20px); opacity: 0.7; }
 }
