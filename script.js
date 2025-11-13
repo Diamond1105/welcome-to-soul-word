@@ -1,7 +1,6 @@
 // YEH SABSE ZAROORI LINE HAI
 // Iska matlab hai: "Browser, pehle poora HTML load kar lo, fir yeh function chalana"
 document.addEventListener('DOMContentLoaded', function() {
-    alert("TEST OK _ File Load Ho Gayi!"); //<-- BAS YEHI EK NAYI LINE ADD KARNI HAI
     // === Dynamic header background on scroll ===
     const header = document.querySelector('.main-header');
     
@@ -21,6 +20,31 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // === Good Morning/Evening Logic ===
+    // === Language Toggle Logic ===
+const englishBtn = document.getElementById('btn-en');
+const hindiBtn = document.getElementById('btn-hi');
+const englishElements = document.querySelectorAll('.lang-en');
+const hindiElements = document.querySelectorAll('.lang-hi');
+
+function setLanguage(lang) {
+    if (lang === 'hi') {
+        englishElements.forEach(el => el.style.display = 'none');
+        hindiElements.forEach(el => el.style.display = 'block');
+        englishBtn.classList.remove('active');
+        hindiBtn.classList.add('active');
+    } else { // Default English
+        englishElements.forEach(el => el.style.display = 'block');
+        hindiElements.forEach(el => el.style.display = 'none');
+        englishBtn.classList.add('active');
+        hindiBtn.classList.remove('active');
+    }
+}
+
+englishBtn.addEventListener('click', () => setLanguage('en'));
+hindiBtn.addEventListener('click', () => setLanguage('hi'));
+
+// Pehli baar load hone par English set karo
+setLanguage('en');
     // (Line 81 waala code)
     const greetingElement = document.getElementById("welcome-message");
     
@@ -63,5 +87,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // handleScroll();
 
 }); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+
 
 
