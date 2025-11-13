@@ -65,50 +65,39 @@ setLanguage('en');
         greetingElement.innerHTML = message;
     }
 
-    // === Back to Top Button Logic ===
-  // === Back to Top Button Logic (Robust Version) ===
+   // === BACK TO TOP BUTTON LOGIC (FINAL WORKING VERSION) ===
 const backToTopButton = document.getElementById('back-to-top');
 
 // Sirf tabhi chalao agar button HTML mein maujood hai
 if (backToTopButton) {
 
-    // Kadam 1: Button ko dikhana aur chhipana
+    // 1. Button ko scroll hone par dikhana aur chhipana
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 350) { // Jab user 350 pixels se zyada scroll karega
-            backToTopButton.classList.add('show'); 
+        if (window.scrollY > 350) { 
+            backToTopButton.classList.add('show');
         } else {
-            backToTopButton.classList.remove('show')
+            backToTopButton.classList.remove('show');
         }
     });
 
-    // Kadam 2: Click hone par upar scroll karna
+    // 2. Click hone par upar scroll karna
     backToTopButton.addEventListener('click', (e) => {
-        e.preventDefault(); // Link ke default behavior ko rokna
+        e.preventDefault(); 
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Isse scroll dheere se upar jayega
+            behavior: 'smooth' 
         });
     });
-
-    // Shuruat mein button ko chhipa do (Page load hone par)
-    backtoTopButton.style.display = 'none';
-}
-        behavior: 'smooth' // Isse scroll dheere se upar jayega
-    });
-});
-
-// Shuruat mein button ko chhipa do (Page load hone par)
-backToTopButton.style.display = 'none';
-
-// ... (Baaki bacha hua code aur fir yahaan par 'DOMContentLoaded' function band hota hai)
     
-    // ... (Aapka bacha hua code jaise handleScroll() etc. bhi YAHIN AAYEGA)
-    // const handleScroll = () => { ... };
-    // window.addEventListener('scroll', handleScroll);
-    // handleScroll();
+    // Shuruat mein chhipa do
+    backToTopButton.style.display = 'none';
+} 
+// -------------------------------------------------------------------
+// Note: Iske neeche agar koi aur code nahi hai, toh file sahi se band honi chahiye.
 
-}); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+} // <--- Yahaan 'if (backToTopButton)' check band hua.
 
+}); // <--- Yahaan 'document.addEventListener' (File ka ant) band hua.
 
 
 
