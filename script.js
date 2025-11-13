@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Good Morning/Evening Logic ===
     // (Line 81 waala code)
-    const greetingElement = document.getElementById("greeting-text");
+    const greetingElement = document.getElementById("welcome-message");
     
     // Sirf tabhi chalao agar '#greeting-text' HTML mein hai
     if (greetingElement) {
@@ -63,4 +63,5 @@ document.addEventListener('DOMContentLoaded', function() {
     // handleScroll();
 
 }); // <-- Yahaan 'DOMContentLoaded' wrapper band hota hai
+
 
