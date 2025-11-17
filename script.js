@@ -11,7 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const hindiBtn = document.getElementById('btn-hi');
     const englishElements = document.querySelectorAll('.lang-en');
     const hindiElements = document.querySelectorAll('.lang-hi');
-
+// [YAHAN PASTE KAREIN -1]
+    const themeToggle=document.getElementById('theme-toggle');
+    const body=document.body;//Body tag ko Target karne ke liye
+    // ---------------------------
+    
     // --- 2. FUNCTION DEFINITIONS ---
     
     // LANGUAGE FUNCTION (Uses variables defined above)
@@ -30,6 +34,15 @@ document.addEventListener('DOMContentLoaded', function() {
             hindiBtn.classList.remove('active');
         }
     }
+    // DARK MODE FUNCTION
+    function toggleTheme() {
+        body.classList.toggle('dark-theme');
+        //Body par class lagana
+        const is DarkMode =bpdy.classList.contains(;dark-theme');
+            localstorage.setItem('theme', is DarkMode ? 'dark' :'light'); 
+        //preference save karna
+    }
+    //------------------------------
     
     // HEADER FUNCTION
     if (header) {
@@ -93,5 +106,17 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         setLanguage('en'); // Use default English
     }
+    // DARK MODE BUTTON LISTENER
+    themeToggle.addEventListener('click',toggleTheme);
+    // DARK MODE LOADER(page load hone par check karna)
+    const savedTheme+loacalstorage.getItem('theme');
+    if(SavedTheme=== 'dark'){
+        body.classList.add('dark-Theme');
+    } else if (!savedTheme) {
+        // Agar koi preference nahi hai, toh system preference check karein (optional)
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme:dark)').matches) {
+            body.classList.add('dark-theme');
+        }
+    }
+  }); // <--- Final Closure
 
-}); // <--- Final Closure
