@@ -21,17 +21,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // === Good Morning/Evening Logic ===
     // === Language Toggle Logic ===
-const englishBtn = document.getElementById('btn-en');
-const hindiBtn = document.getElementById('btn-hi');
-const englishElements = document.querySelectorAll('.lang-en');
-const hindiElements = document.querySelectorAll('.lang-hi');
+const englishBtn=document.getElementById('btn-en');
+const hindiBtn=document.getElementById('btn-hi');
+const englishElements=document.querySelectorAll('.lang-en');
+const hindiElements=document.querySelectorAll('.lang-hi');
 
 function setLanguage(lang) {
     // 1. Langage ko loacal storage me save karo
     localStorage.setItem('soul WorldLang',lang);
-    const englishElements=document.querySelectionAll('.lang-hi');
-    const englishBtn=document.getElementbyId('btn-en;);
-    const hindiBtn=document.getElementById('btn-hi');
     
     if (lang === 'hi') {
         englishElements.forEach(el => el.style.display = 'none');
@@ -112,6 +109,7 @@ if (backToTopButton) {
 } // <--- Yahaan 'if (backToTopButton)' check band hua.
 
 }); // <--- Yahaan 'document.addEventListener' (File ka ant) band hua.
+
 
 
 
