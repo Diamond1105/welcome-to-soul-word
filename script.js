@@ -47,7 +47,13 @@ englishBtn.addEventListener('click', () => setLanguage('en'));
 hindiBtn.addEventListener('click', () => setLanguage('hi'));
 
 // Pehli baar load hone par English set karo
-setLanguage('en');
+    //===LANGUAGE PREWFERENCE LOAD KAREIN===
+    const savedLang=LocalStorage.getItem('soulWorldLang');
+    if (savedLang){
+        setLanguage(savedLang); // Agar koi saved language hai, toh use set karo
+    }else{
+        setLanguage('en'); // Agar kuch save nahi hai, toh default English set karo
+    }
     // (Line 81 waala code)
     const greetingElement = document.getElementById("dynamic-greeting");
     
@@ -109,6 +115,7 @@ if (backToTopButton) {
 } // <--- Yahaan 'if (backToTopButton)' check band hua.
 
 }); // <--- Yahaan 'document.addEventListener' (File ka ant) band hua.
+
 
 
 
