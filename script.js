@@ -27,6 +27,12 @@ const englishElements = document.querySelectorAll('.lang-en');
 const hindiElements = document.querySelectorAll('.lang-hi');
 
 function setLanguage(lang) {
+    // 1. Langage ko loacal storage me save karo
+    localStorage.setItem('soul WorldLang',lang);
+    const englishElements=document.querySelectionAll('.lang-hi');
+    const englishBtn=document.getElementbyId('btn-en;);
+    const hindiBtn=document.getElementById('btn-hi');
+    
     if (lang === 'hi') {
         englishElements.forEach(el => el.style.display = 'none');
         hindiElements.forEach(el => el.style.display = 'block');
@@ -39,7 +45,7 @@ function setLanguage(lang) {
         hindiBtn.classList.remove('active');
     }
 }
-
+// Button par click hone pae language save hogi(yeh code theek hai)
 englishBtn.addEventListener('click', () => setLanguage('en'));
 hindiBtn.addEventListener('click', () => setLanguage('hi'));
 
@@ -88,6 +94,17 @@ if (backToTopButton) {
             behavior: 'smooth' 
         });
     });
+    //===Language Preference Load Karein===
+    const savedLang=loaclstorage.grtItem('soulWorldLang');
+
+    // Agar koi saved language hai, to use set kro
+    if (savedLang){
+        setLanguage(savedLang);
+    }else{
+        //Agar luch save nahi hai, toh default English set karo
+        setLanguage('en');
+    }
+});
 
 // -------------------------------------------------------------------
 // Note: Iske neeche agar koi aur code nahi hai, toh file sahi se band honi chahiye.
@@ -95,6 +112,7 @@ if (backToTopButton) {
 } // <--- Yahaan 'if (backToTopButton)' check band hua.
 
 }); // <--- Yahaan 'document.addEventListener' (File ka ant) band hua.
+
 
 
 
